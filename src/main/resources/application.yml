@@ -1,0 +1,41 @@
+app:
+  name: tips
+  version: 1.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#  version: v1.0
+
+#maven.app: "@maven.build.artifactId@"
+
+spring:
+  config:
+    additional-location: additional2.yml
+    location: additional2.yml
+  main:
+    lazy-initialization: true
+#    banner-mode: off
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: lazy
+#  jpa:
+#    open-in-view: false
+#    generate-ddl: false
+#    hibernate:
+#      ddl-auto: none
+#    properties:
+#      hibernate:
+#        cache:
+#          use_second_level_cache: false
+#          use_query_cache: false
+
+#server:
+#  tomcat:
+#    threads:
+#      min-spare: 0
+#      max: 20
+#    additional-tld-skip-patterns: "*.jar"
