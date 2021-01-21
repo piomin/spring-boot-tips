@@ -84,11 +84,16 @@ jobs:
       with:
         image: ${{ env.APP_NAME }}
         tag: ${{ env.TAG }}
+        base-image: docker.io/openjdk:11.0-jre-slim
+        content: |
+          target/spring-boot-tips-1.0-SNAPSHOT.jar
+        entrypoint: java -jar spring-boot-tips-1.0-SNAPSHOT.jar
+        port: 8080
         # If you don't have a dockerfile, see:
         # https://github.com/redhat-actions/buildah-build#building-from-scratch
         # Otherwise, point this to your Dockerfile relative to the repository root.
-        dockerfiles: |
-          ./Dockerfile
+        #dockerfiles: |
+        #  ./Dockerfile
 
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to registry
