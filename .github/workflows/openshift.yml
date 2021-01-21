@@ -77,9 +77,11 @@ jobs:
       if: env.TAG == ''
       run: |
         echo "TAG=${GITHUB_SHA::7}" | tee -a $GITHUB_ENV
-
+    
+    - run: mvn package
+      
     # https://github.com/redhat-actions/buildah-build#readme
-    - name: Build from Dockerfile
+    - name: Build image
       uses: redhat-actions/buildah-build@v1
       with:
         image: ${{ env.APP_NAME }}
