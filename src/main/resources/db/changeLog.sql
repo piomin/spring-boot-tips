@@ -2,7 +2,7 @@
 
 --changeset piomin:1
 create table tip (
-  id serial primary key,
+  id int auto_increment,
   title varchar(255),
   description varchar(255)
 );
