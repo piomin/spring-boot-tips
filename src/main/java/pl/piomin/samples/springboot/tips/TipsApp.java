@@ -18,7 +18,7 @@ import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @SpringBootApplication
-@EnableConfigurationProperties(TipsAppProperties.class)
+@EnableConfigurationProperties({TipsAppProperties.class, Person2.class})
 @Slf4j
 //@EntityScan("pl.piomin.samples.springboot.tips.data.model")
 public class TipsApp {

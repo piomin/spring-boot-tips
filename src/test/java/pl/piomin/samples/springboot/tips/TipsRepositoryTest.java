@@ -22,13 +22,12 @@ public class TipsRepositoryTest {
     public void testAdd() {
         Tip tip = tipRepository.save(new Tip(null, "Tip1", "Desc1"));
         Assertions.assertNotNull(tip);
-//        tipRepository.deleteById(tip.getId());
     }
 
     @Test
     @Order(2)
     public void testFindAll() {
         Iterable<Tip> tips = tipRepository.findAll();
-        Assertions.assertEquals(0, ((List<Tip>) tips).size());
+        Assertions.assertEquals(3, ((List<Tip>) tips).size());
     }
 }
