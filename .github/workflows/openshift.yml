@@ -82,7 +82,7 @@ jobs:
       
     # https://github.com/redhat-actions/buildah-build#readme
     - name: Build image
-      uses: redhat-actions/buildah-build@v1
+      uses: redhat-actions/buildah-build@v2
       with:
         image: ${{ env.APP_NAME }}
         tag: ${{ env.TAG }}
