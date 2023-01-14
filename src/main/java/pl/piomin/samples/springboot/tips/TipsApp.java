@@ -1,20 +1,16 @@
 package pl.piomin.samples.springboot.tips;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
 import pl.piomin.samples.springboot.tips.config.TipsAppProperties;
 import pl.piomin.samples.springboot.tips.data.model.Person2;
 
-import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @SpringBootApplication
