@@ -9,5 +9,11 @@ create table tip (
 create table person (
   id serial primary key,
   name varchar(255),
-  age int
+  age int,
+  gender varchar(20),
+  country varchar(50),
+  city varchar(50),
+  street varchar(50),
+  house_number int,
+  flat_number int
 );

@@ -18,4 +18,6 @@ public class Person {
     private Long id;
     private String name;
     private int age;
+    private Gender gender;
+    private Address address;
 }
