@@ -15,5 +15,7 @@ create table person (
   city varchar(50),
   street varchar(50),
   house_number int,
-  flat_number int
+  flat_number int,
+  email varchar(50),
+  phone_number varchar(20)
 );
