@@ -100,7 +100,7 @@ jobs:
     # https://github.com/redhat-actions/push-to-registry#readme
     - name: Push to registry
       id: push-to-registry
-      uses: redhat-actions/push-to-registry@v1
+      uses: redhat-actions/push-to-registry@v2
       with:
         image: ${{ env.APP_NAME }}
         tag: ${{ env.TAG }}
