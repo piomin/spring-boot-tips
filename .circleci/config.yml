@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: 'cimg/openjdk:20.0'
+      - image: 'cimg/openjdk:21.0'
     steps:
       - checkout
       - run:
@@ -11,9 +11,9 @@ jobs:
           command: mvn verify sonar:sonar
 
 executors:
-  j19:
+  jdk:
     docker:
-      - image: 'cimg/openjdk:20.0'
+      - image: 'cimg/openjdk:21.0'
 
 orbs:
   maven: circleci/maven@1.4.1
@@ -22,6 +22,6 @@ workflows:
   maven_test:
     jobs:
       - maven/test:
-          executor: j19
+          executor: jdk
       - build:
           context: SonarCloud
