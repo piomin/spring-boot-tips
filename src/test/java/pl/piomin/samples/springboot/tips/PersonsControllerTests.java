@@ -25,7 +25,7 @@ public class PersonsControllerTests {
         Faker faker = new Faker(Locale.of("pl"), new Random(0));
         Contact contact = new Contact();
         contact.setEmail(faker.internet().emailAddress());
-        contact.setPhoneNumber(faker.phoneNumber().cellPhone());
+        contact.setPhoneNumber(faker.phoneNumber().cellPhoneInternational());
         Address address = new Address();
         address.setCity(faker.address().city());
         address.setCountry(faker.address().country());

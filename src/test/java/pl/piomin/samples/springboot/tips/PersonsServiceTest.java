@@ -32,7 +32,7 @@ public class PersonsServiceTest {
     void addAndGet() {
         Person person = Instancio.of(Person.class)
                 .ignore(Select.field(Person::getId))
-                .generate(Select.field(Contact::getPhoneNumber), gen -> gen.text().pattern("#d#d-#d#d#d-#d#d-#d#d"))
+                .generate(Select.field(Contact::getPhoneNumber), gen -> gen.text().pattern("+#d#d #d#d#d #d#d#d #d#d#d"))
                 .generate(Select.field(Contact::getEmail), gen -> gen.text().pattern("#c@#c.com"))
                 .create();
         person = personService.addPerson(person);
@@ -48,7 +48,7 @@ public class PersonsServiceTest {
         final String city = "Warsaw";
         List<Person> persons = Instancio.ofList(Person.class)
                 .size(numberOfObjects)
-                .generate(Select.field(Contact::getPhoneNumber), gen -> gen.text().pattern("#d#d-#d#d#d-#d#d-#d#d"))
+                .generate(Select.field(Contact::getPhoneNumber), gen -> gen.text().pattern("+#d#d #d#d#d #d#d#d #d#d#d"))
                 .generate(Select.field(Contact::getEmail), gen -> gen.text().pattern("#c@#c.com"))
                 .set(Select.field(Address::getCity), city)
                 .create();
@@ -63,7 +63,7 @@ public class PersonsServiceTest {
                 .size(100)
                 .ignore(Select.field(Person::getId))
                 .generate(Select.field(Person::getAge), gen -> gen.ints().range(18, 65))
-                .generate(Select.field(Contact::getPhoneNumber), gen -> gen.text().pattern("#d#d-#d#d#d-#d#d-#d#d"))
+                .generate(Select.field(Contact::getPhoneNumber), gen -> gen.text().pattern("+#d#d #d#d#d #d#d#d #d#d#d"))
                 .generate(Select.field(Contact::getEmail), gen -> gen.text().pattern("#c@#c.com"))
                 .create();
         personService.addPersons(persons);

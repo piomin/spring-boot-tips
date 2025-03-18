@@ -10,7 +10,7 @@ public class Contact {
 
     @Email
     private String email;
-    @Pattern(regexp="\\d{2}-\\d{3}-\\d{2}-\\d{2}")
+    @Pattern(regexp="^\\+\\d{1,3} \\d{3} \\d{3} \\d{3}$", message = "Invalid phone number format")
     @Nullable
     private String phoneNumber;
 
