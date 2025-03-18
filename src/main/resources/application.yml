@@ -7,9 +7,6 @@ management:
     web:
       exposure:
         include: "*"
-#  version: v1.0
-
-#maven.app: "@maven.build.artifactId@"
 
 spring.liquibase.change-log: classpath:db/changeLog.sql
 
@@ -19,8 +16,3 @@ spring:
     location: additional2.yml
   main:
     lazy-initialization: true
-#    banner-mode: off
-#  data:
-#    jpa:
-#      repositories:
-#        bootstrap-mode: lazy

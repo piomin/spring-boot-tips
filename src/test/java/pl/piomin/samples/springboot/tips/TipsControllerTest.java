@@ -11,7 +11,6 @@ import pl.piomin.samples.springboot.tips.service.TipService;
 
 import java.util.List;
 
-//@SpringBootTest
 @DataJpaTest(showSql = false)
 @Import({TipService.class, PersonService.class})
 public class TipsControllerTest {
