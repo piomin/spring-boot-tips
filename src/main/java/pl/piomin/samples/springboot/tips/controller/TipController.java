@@ -1,6 +1,7 @@
 package pl.piomin.samples.springboot.tips.controller;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,9 +15,9 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/tips")
-@Slf4j
 public class TipController {
 
+    private static final Logger LOG = LoggerFactory.getLogger(TipController.class);
     private TipRepository repository;
 
     public TipController(TipRepository repository) {
@@ -33,7 +34,7 @@ public class TipController {
         try {
             return repository.findById(id).orElseThrow();
         } catch (NoSuchElementException e) {
-            log.error("Not found", e);
+            LOG.error("Not found", e);
             throw new ResponseStatusException(HttpStatus.NO_CONTENT);
         }
     }

@@ -3,7 +3,6 @@ package pl.piomin.samples.springboot.tips.data.model;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 @Embeddable
