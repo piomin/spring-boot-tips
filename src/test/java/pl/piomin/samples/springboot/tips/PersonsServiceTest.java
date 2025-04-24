@@ -4,6 +4,8 @@ import org.instancio.Instancio;
 import org.instancio.Select;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
@@ -18,6 +20,8 @@ import java.util.List;
 @DataJpaTest(showSql = false)
 @Import({TipService.class, PersonService.class})
 public class PersonsServiceTest {
+
+    private final static Logger LOG = LoggerFactory.getLogger(PersonsServiceTest.class);
 
     @Autowired
     private PersonService personService;
@@ -48,6 +52,7 @@ public class PersonsServiceTest {
         final String city = "Warsaw";
         List<Person> persons = Instancio.ofList(Person.class)
                 .size(numberOfObjects)
+                .ignore(Select.field(Person::getId))
                 .generate(Select.field(Contact::getPhoneNumber), gen -> gen.text().pattern("+#d#d #d#d#d #d#d#d #d#d#d"))
                 .generate(Select.field(Contact::getEmail), gen -> gen.text().pattern("#c@#c.com"))
                 .set(Select.field(Address::getCity), city)
