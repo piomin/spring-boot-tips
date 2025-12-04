@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 import java.util.Objects;
 
 @Entity
-@Data
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

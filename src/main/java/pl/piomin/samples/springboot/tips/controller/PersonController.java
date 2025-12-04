@@ -25,7 +25,7 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public Person findById(@PathVariable("id") Long id, @RequestHeader("X-Version") String version) {
+    public Person findById(@PathVariable("id") Long id, @RequestHeader("api-version") String version) {
         LOG.info("FindById: id={}, version={}", id, version);
         return repository.findById(id).orElseThrow();
     }
