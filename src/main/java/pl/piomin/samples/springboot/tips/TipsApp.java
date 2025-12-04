@@ -1,7 +1,6 @@
 package pl.piomin.samples.springboot.tips;
 
 import jakarta.annotation.PostConstruct;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +9,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
+import org.springframework.web.service.registry.ImportHttpServices;
 import pl.piomin.samples.springboot.tips.config.TipsAppProperties;
-import pl.piomin.samples.springboot.tips.controller.TipController;
 import pl.piomin.samples.springboot.tips.data.model.Person2;
 
 import java.util.Optional;
 
 @SpringBootApplication
 @EnableConfigurationProperties({TipsAppProperties.class, Person2.class})
+//@ImportHttpServices(group = "local", types = PersonService.class)
+@ImportHttpServices(group = "tips", basePackages = "pl.piomin.samples.springboot.tips.client")
 public class TipsApp {
 
     private static final Logger LOG = LoggerFactory.getLogger(TipsApp.class);
@@ -36,9 +37,7 @@ public class TipsApp {
     @PostConstruct
     void init() {
         LOG.info("properties: {}", properties);
-        if (git.isPresent()) {
-            LOG.info("Git data: {} {}", git.get().getCommitId(), git.get().getCommitTime());
-        }
+        git.ifPresent(entries -> LOG.info("Git data: {} {}", entries.getCommitId(), entries.getCommitTime()));
     }
 
 }

@@ -16,3 +16,11 @@ spring:
     location: additional2.yml
   main:
     lazy-initialization: true
+  mvc:
+    apiversion:
+      default: 1.0
+      use:
+        header: api-version
+
+spring.http.service.client.tips.base-url: http://localhost:8090/persons
+spring.http.service.client.tips.apiversion.insert.header: api-version
