@@ -8,7 +8,7 @@ management:
       exposure:
         include: "*"
 
-spring.liquibase.change-log: classpath:db/changeLog.sql
+spring.liquibase.change-log: db/changeLog.sql
 
 spring:
   config:
