@@ -9,14 +9,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
+import org.springframework.context.annotation.ImportRuntimeHints;
 import org.springframework.web.service.registry.ImportHttpServices;
 import pl.piomin.samples.springboot.tips.config.TipsAppProperties;
 import pl.piomin.samples.springboot.tips.data.model.Person2;
+import pl.piomin.samples.springboot.tips.hints.NativeResourceHints;
 
 import java.util.Optional;
 
 @SpringBootApplication
 @EnableConfigurationProperties({TipsAppProperties.class, Person2.class})
+@ImportRuntimeHints(NativeResourceHints.class)
 //@ImportHttpServices(group = "local", types = PersonService.class)
 @ImportHttpServices(group = "tips", basePackages = "pl.piomin.samples.springboot.tips.client")
 public class TipsApp {

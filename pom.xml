@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>21</java.version>
+        <native.maven.plugin.version>0.11.4</native.maven.plugin.version>
         <sonar.projectKey>piomin_spring-boot-tips</sonar.projectKey>
         <sonar.organization>piomin</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -95,6 +96,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeTools>true</includeTools>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -124,5 +128,30 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>native</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.graalvm.buildtools</groupId>
+                        <artifactId>native-maven-plugin</artifactId>
+                        <version>${native.maven.plugin.version}</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <verbose>false</verbose>
+                            <fallback>false</fallback>
+                            <imageName>${project.artifactId}</imageName>
+                            <mainClass>pl.piomin.samples.springboot.tips.TipsApp</mainClass>
+                            <buildArgs>
+                                <buildArg>--no-fallback</buildArg>
+                            </buildArgs>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

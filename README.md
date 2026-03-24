@@ -10,3 +10,7 @@
 This repository shows the most interesting tips and tricks with the Spring Boot framework. 
 
 A detailed description can be found here: [Spring Boot Tips, Tricks and Techniques](https://piotrminkowski.com/2021/01/13/spring-boot-tips-tricks-and-techniques/)
+
+## Benchmarking
+
+A local benchmark harness for comparing `plain`, `extracted`, `leyden`, and `graalvm` startup modes is available in [benchmarking/README.md](benchmarking/README.md).
